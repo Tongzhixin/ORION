@@ -1,0 +1,48 @@
+['SELECT\n    l_shipdate,\n    COUNT(DISTINCT l_partkey) AS unique_parts,\n    COUNT(DISTINCT l_orderkey) AS unique_orders\nFROM\n    lineitem\nGROUP BY\n    l_shipdate']
+      l_shipdate  unique_parts  unique_orders
+0     1998-07-26        248163         245575
+1     1995-01-15        248136         245513
+2     1993-10-01        248295         245672
+3     1992-06-20        248001         245560
+4     1996-12-28        248219         245729
+...          ...           ...            ...
+2521  1994-07-04        248132         245706
+2522  1998-10-12        104375         102956
+2523  1998-11-17         30865          30347
+2524  1994-01-12        248503         245930
+2525  1992-01-24         47387          46726
+
+[2526 rows x 3 columns]
+q1,100472.7
+['SELECT\n    l_partkey,\n    COUNT(DISTINCT l_orderkey) AS unique_orders,\n    COUNT(DISTINCT l_suppkey) AS unique_suppliers,\n    COUNT(DISTINCT l_partkey) AS unique_parts\nFROM\n    lineitem\nGROUP BY\n    l_partkey']
+         l_partkey  ...  unique_parts
+0          1274959  ...             1
+1           603580  ...             1
+2           364539  ...             1
+3           418150  ...             1
+4          1833847  ...             1
+...            ...  ...           ...
+1999995     286514  ...             1
+1999996    1244041  ...             1
+1999997     325291  ...             1
+1999998    1636617  ...             1
+1999999    1415315  ...             1
+
+[2000000 rows x 4 columns]
+q1,91223.3
+['SELECT\n    l_shipdate,\n    COUNT(DISTINCT l_partkey) AS unique_parts,\n    COUNT(DISTINCT l_orderkey) AS unique_orders\nFROM\n    lineitem\nGROUP BY\n    l_shipdate']
+      l_shipdate  unique_parts  unique_orders
+0     1996-02-22         24914          24665
+1     1996-03-25         24664          24390
+2     1992-05-26         24632          24405
+3     1996-11-15         24544          24287
+4     1992-03-31         18586          18344
+...          ...           ...            ...
+2521  1992-01-28          5463           5392
+2522  1998-11-21          2322           2288
+2523  1992-01-09          1709           1680
+2524  1992-01-03           412            405
+2525  1992-01-02           196            192
+
+[2526 rows x 3 columns]
+q1,10736.4
