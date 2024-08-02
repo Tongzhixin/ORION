@@ -40,9 +40,9 @@ def table_scan_remote(bucket, file_path, columns, filters ,output_queue):
     import pyarrow.fs as fs
 
     s3 = fs.S3FileSystem(
-        endpoint_override="http://10.2.64.6:9100",
-        access_key="esQWHRxxpOL2oy48CW3K",
-        secret_key="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
+        endpoint_override="",
+        access_key="",
+        secret_key="",
         scheme="http",
     )
     table = pq.read_table(
@@ -64,70 +64,11 @@ class TableScan:
         self.input_queue = input_queue
         self.output_queue = output_queue
         self.all_time = time.time()
-        # self.s3 = fs.S3FileSystem(
-        #     endpoint_override="http://10.2.64.6:9100",
-        #     access_key="esQWHRxxpOL2oy48CW3K",
-        #     secret_key="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
-        #     scheme="http",
-        # )
+
         self.refs = []
         self.name = "scan"
     def get_name(self):
         return self.name
-
-    # def table_scan_remote(self, bucket, file_path, columns, filters):
-    #     time_start = time.time()
-    #     data_key = file_path + "columns" + ".".join(columns)
-    #     table = ray.get(self.mempool.get.remote(data_key))
-    #     if not table:
-    #         full_path = f"{bucket}/{file_path}"
-    #         s3 = s3fs.S3FileSystem(
-    #             endpoint_url="http://10.2.64.6:9100",
-    #             key="esQWHRxxpOL2oy48CW3K",
-    #             secret="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
-    #             use_ssl=False,
-    #             max_concurrency=20,
-    #         )
-
-    #         # import pyarrow.fs as fs
-
-    #         # s3 = fs.S3FileSystem(
-    #         #     endpoint_override="http://10.2.64.6:9100",
-    #         #     access_key="esQWHRxxpOL2oy48CW3K",
-    #         #     secret_key="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
-    #         #     scheme="http",
-    #         # )
-
-    #         table = pq.read_table(
-    #             full_path,
-    #             columns=columns,
-    #             filesystem=s3,
-    #             filters=filters,
-    #             pre_buffer=True,
-    #         )
-    #         ray.get(self.mempool.put.remote(data_key, table))
-    #     # print(f"table_scan_remote {time.time() - time_start}")
-    #     self.output_queue.put(table)
-    #     # print(f"now output queue size:{self.output_queue.qsize()}")
-
-    # def table_scan_local(self, bucket, file_path, columns, filters):
-    #     time_start = time.time()
-    #     data_key = file_path + "columns" + ".".join(columns)
-    #     # table = ray.get(self.mempool.get.remote(data_key))
-    #     table = None
-    #     if not table:
-    #         full_path = f"{bucket}/{file_path}"
-    #         table = pq.read_table(
-    #             full_path,
-    #             columns=columns,
-    #             use_threads=True,
-    #             filters=filters,
-    #             pre_buffer=True,
-    #         )
-
-    #         # ray.get(self.mempool.put.remote(data_key, table))
-    #     # print(f"table_scan_local {time.time() - time_start}")
-    #     self.output_queue.put(table)
 
     def run(self):
         max_cpu = 30

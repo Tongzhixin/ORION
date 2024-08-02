@@ -110,9 +110,9 @@ def get_cached_files(lru_cached):
 def list_files(bucket, prefix):
     # 创建S3FileSystem实例
     s3 = s3fs.S3FileSystem(
-        endpoint_url="http://10.2.64.6:9100",
-        key="esQWHRxxpOL2oy48CW3K",
-        secret="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
+        endpoint_url="",
+        key="",
+        secret="",
         use_ssl=False,
     )
     file_list = s3.ls(f"s3://{bucket}/{prefix}")

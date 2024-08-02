@@ -12,9 +12,9 @@ from datafusion import functions as f
 
 # ray.init()
 
-os.environ["AWS_ACCESS_KEY_ID"]="esQWHRxxpOL2oy48CW3K"
-os.environ["AWS_SECRET_ACCESS_KEY"]="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde"
-os.environ["AWS_ENDPOINT"]="http://10.2.64.6:9100"
+os.environ["AWS_ACCESS_KEY_ID"]=""
+os.environ["AWS_SECRET_ACCESS_KEY"]=""
+os.environ["AWS_ENDPOINT"]=""
 
 def monitor_memory(pid, output_file):
     with open(output_file, 'a') as file:
@@ -71,7 +71,7 @@ def setCtx():
 import s3fs
 
 def file_to_batches(s3_path):
-    s3 = s3fs.S3FileSystem(endpoint_url="http://10.2.64.6:9100",key="esQWHRxxpOL2oy48CW3K",secret="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",use_ssl=False)
+    s3 = s3fs.S3FileSystem(endpoint_url="",key="",secret="",use_ssl=False)
 
     # ds = pq.read_table(s3_path,filesystem=s3)
     # print(ds)
