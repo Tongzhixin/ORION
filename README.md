@@ -1,5 +1,5 @@
 # ORION
-This is the prototype system implementation of ORION, a research, we present here the parts that have been removed for commercial use for academic exchange. 
+This is the prototype system implementation of ORION, a research. We present here the parts of code that have been removed for commercial use for academic exchange. 
 Since the system is closely coupled with commercial use, we will work hard to update the code to remove copyright and commercial use, and ensure that this project will continue to add code and continue to exist in the form of open source.
 
 ### Clone the Repo
@@ -18,8 +18,7 @@ cd ORION
 - Software requirement
     - Ubuntu 20.04.2 LTS with kernel 5.11.0-34-generic
     - Python 3.11
-    - Spark-3.3.1
-    - Presto-latest
+    - Spark-3.3.1 or Presto-0.288[https://prestodb.io/docs/current/](https://prestodb.io/docs/current/)
     - MinIO 
     - cuDF 24.04[https://github.com/rapidsai/cudf](https://github.com/rapidsai/cudf)
     - Ray [https://docs.ray.io/en/latest/](https://docs.ray.io/en/latest/)
@@ -29,10 +28,16 @@ cd ORION
 ## Installation for preparation
 
 - cuDF
+  - `pip install --extra-index-url=https://pypi.nvidia.com cudf-cu12` or `conda install -c rapidsai -c conda-forge -c nvidia \
+    cudf=24.10 python=3.11 cuda-version=12.5`
 - Pyarrow
+  - `pip install "pyarrow[all]"`
 - Ray
+  - `pip install ray==2.31.0`
 - MinIO
+  - refer to the `ORION\doc\setupMinio.md`
 - Spark
+  - refer to the 
 
 ## Document
 Developers can refer to the developer documentation of `doc/doc.md`.
