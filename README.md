@@ -2,6 +2,10 @@
 This is the prototype system implementation of ORION, a research. We present here the parts of code that have been removed for commercial use for academic exchange. 
 Since the system is closely coupled with commercial use, we will work hard to update the code to remove copyright and commercial use, and ensure that this project will continue to add code and continue to exist in the form of open source.
 
+Since this research is under review, we are not in a position to disclose all test data at this time to avoid plagiarism. We will disclose all test data, benchmark data, test process and fullly code including comprehensive manager later.
+
+All subsequent code updates, interface updates, and document updates will be made in this public repository.
+
 ### Clone the Repo
 
 ```
@@ -12,18 +16,19 @@ cd ORION
 ## Environment Preparation
 - Hardware requirement
     - A cluster with 3 CPU servers or more
-    - CPU: Intel(R) Xeon(R) CPU E5-2630 v4 @ 2.20GHz
+    - CPU: X86
+    - GPU: Volta architecture or better (Compute Capability >=7.0) 
     - DRAM: 64 GB or more
 
 - Software requirement
     - Ubuntu 20.04.2 LTS with kernel 5.11.0-34-generic
-    - Python 3.11
-    - Spark-3.3.1 or Presto-0.288[https://prestodb.io/docs/current/](https://prestodb.io/docs/current/)
-    - MinIO 
-    - cuDF 24.04[https://github.com/rapidsai/cudf](https://github.com/rapidsai/cudf)
+    - Python 3.11 [https://www.python.org/downloads/release/python-3110/](https://www.python.org/downloads/release/python-3110/)
+    - Spark-3.3.1 or Presto-0.288 [https://prestodb.io/docs/current/](https://prestodb.io/docs/current/)
+    - MinIO OR Amaze S3
+    - cuDF 24.04 [https://github.com/rapidsai/cudf](https://github.com/rapidsai/cudf)
     - Ray [https://docs.ray.io/en/latest/](https://docs.ray.io/en/latest/)
-    - Pyarrow 16.4
-    - CUDA 12.1+ NVIDIA driver 520.80.02+ Volta architecture or better (Compute Capability >=7.0)
+    - Pyarrow 16.4 [https://arrow.apache.org/docs/16.1/python/index.html](https://arrow.apache.org/docs/16.1/python/index.html)
+    - CUDA 12.1+ NVIDIA driver 520.80.02+ [https://developer.nvidia.com/cuda-toolkit](https://developer.nvidia.com/cuda-toolkit)
 
 ## Installation for preparation
 
@@ -37,10 +42,18 @@ cd ORION
 - MinIO
   - refer to the `ORION\doc\setupMinio.md`
 - Spark
-  - refer to the 
+  - refer to the `ORION\doc\setupSpark.md`
 
 ## Document
 Developers can refer to the developer documentation of `doc/doc.md`.
+
+
+## start the cluster
+
+```
+ray start --head --memory=51539607552 --object-store-memory 36474836480
+ray start --head --storage="/tmp/local_file"
+```
 
 ## Getting Started
 1. prepare the software environment of `Installation for preparation`
@@ -52,6 +65,8 @@ Developers can refer to the developer documentation of `doc/doc.md`.
 6. Modify the parameters of each operator in the main function as `ORION\src\main.py` and execute the query
 
 ## TODO
+
+The code will be fully presented after the review is completed
 
 
 

@@ -7,7 +7,7 @@ from ray.util.state import get_actor, get_objects
 from typing import List
 import time
 
-
+# cache manager
 @ray.remote
 class LRUCache:
     def __init__(self, max_size=25 * 1024):
