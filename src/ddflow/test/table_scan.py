@@ -102,16 +102,10 @@ def table_scan_remote(bucket, file_path, columns):
 
     import pyarrow.fs as fs
 
-    # s3 = fs.S3FileSystem(
-    #     endpoint_override="http://10.2.64.6:9100",
-    #     access_key="esQWHRxxpOL2oy48CW3K",
-    #     secret_key="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
-    #     scheme="http",
-    # )
     s3 = fs.S3FileSystem(
         endpoint_override="http://localhost:39999/api/v1/s3/",
-        access_key="esQWHRxxpOL2oy48CW3K",
-        secret_key="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
+        access_key="",
+        secret_key="",
         scheme="http",
     )
 

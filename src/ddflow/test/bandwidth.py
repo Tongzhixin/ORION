@@ -8,20 +8,12 @@ def test():
     full_path = f"tpch-all/tpch_100g_small/lineitem/"
     s3 = s3fs.S3FileSystem(
         endpoint_url="http://10.2.64.6:9100",
-        key="esQWHRxxpOL2oy48CW3K",
-        secret="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
+        key="",
+        secret="",
         use_ssl=False,
         max_concurrency=20,
     )
 
-    # import pyarrow.fs as fs
-
-    # s3 = fs.S3FileSystem(
-    #     endpoint_override="http://10.2.64.6:9100",
-    #     access_key="esQWHRxxpOL2oy48CW3K",
-    #     secret_key="frKcsdRVGNhlDS3jR0JCADkLGj18ews7d3qdaZde",
-    #     scheme="http",
-    # )
     columns=[
             "l_orderkey",
             "l_quantity",
